@@ -4,10 +4,9 @@ from typing import Iterable, Any
 class ObjectToDictConverter:
     def __init__(self, obj: Any, fields: list[str] = []) -> None:
         self.obj = obj
-        if len(fields) == 0:
-            self.fields = list()
-            for field in obj._meta.fields:
-                self.fields.append(field.name)
+        self.fields = fields
+        if len(self.fields) == 0:
+            self.fields = [field.name for field in obj._meta.fields]
 
     def convert(self) -> dict[str, Any]:
         item: dict[str, Any] = dict()
