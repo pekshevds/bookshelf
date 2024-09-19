@@ -9,10 +9,7 @@ class ObjectToDictConverter:
             self.fields = [field.name for field in obj._meta.fields]
 
     def convert(self) -> dict[str, Any]:
-        item: dict[str, Any] = dict()
-        for field in self.fields:
-            item[field] = getattr(self.obj, field)
-        return item
+        return {field: getattr(self.obj, field) for field in self.fields}
 
 
 class ObjectsListToDictConverter:
@@ -21,7 +18,7 @@ class ObjectsListToDictConverter:
         self.fields = fields
 
     def convert(self) -> list[dict[str, Any]]:
-        items: list[dict[str, Any]] = []
-        for item in self.objects_list:
-            items.append(ObjectToDictConverter(item, self.fields).convert())
-        return items
+        return [
+            ObjectToDictConverter(item, self.fields).convert()
+            for item in self.objects_list
+        ]
