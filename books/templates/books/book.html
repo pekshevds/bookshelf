@@ -1,0 +1,24 @@
+{% extends 'books/main.html' %}
+
+{% block context %}
+<div class="books">
+    <a href="{% url 'books:books-list' %}">Назад</a>
+</div>
+<div class="book">
+    <div class="title">
+        <p>{{ book.title }}</p>        
+    </div>
+    <div class="author_full_name">
+        <p>{{ book.author_full_name }}</p>        
+    </div>
+    <div class="year_of_publishing">
+        <p>{{ book.year_of_publishing }}</p>        
+    </div>
+    <div class="copies_printed">
+        <p>{{ book.copies_printed }}</p>        
+    </div>
+    <div class="short_description">
+        <p>{{ book.short_description }}</p>        
+    </div>
+</div>    
+{% endblock %}
