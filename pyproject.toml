@@ -24,7 +24,8 @@ DJANGO_SETTINGS_MODULE = "bookshelf.settings"
 # addopts = "--cov=books --cov-report=html --cov-fail-under=60 ."
 # addopts = "--cov=books --cov-fail-under=60 ."
 # addopts = "--cov=books ./books/tests/tests_utils.py"
-addopts = "--cov=books --cov-report=html --cov-branch --cov-fail-under=60 ./books/tests/tests_utils.py"
+# addopts = "--cov=books --cov-report=html --cov-branch --cov-fail-under=60 ./books/tests/tests_models.py"
+addopts = "--cov=books ./books/tests/tests_models.py"
 
 
 [build-system]
